@@ -5,21 +5,20 @@ const { Tag, Product, ProductTag } = require('../../models');
 
 // find all tags
   // be sure to include its associated Product data
-router.get('/', (req, res) => {
-  Tag.findAll({
-    include: [
-      {
+router.get('/', async (req, res) => {
+  try {
+    const tagData = await Tag.findAll({
+      include: [{
         model: Product,
-        attributes: ['id', 'product_name', 'price', 'stock', 'category_id'],
-      }
-    ]
-  }) 
-  .then(tagData => res.json(tagData))
-  .catch(err => {
-    console.log("19 here");
-    res.status(500).json(err);
+        attributes: ['id', 'product_name', 'price', 'stock', 'category_id']
+      }],
+    });
+    res.status(200).json(tagData);
+  } catch (err) {
+    console.log("tag-routes 18 here");
+    res.status(400).json(err);
+  }
   });
-});
 
 // find a single tag by its `id`
   // be sure to include its associated Product data
