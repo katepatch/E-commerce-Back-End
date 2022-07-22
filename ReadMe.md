@@ -15,7 +15,7 @@
 
   -[Contributing](#Contributing)
 
-  -[Tests](#Tests)
+  -[Links](#Links)
 
   -[Questions](#Questions)
 
