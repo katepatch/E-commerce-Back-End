@@ -12,8 +12,11 @@ router.get('/', async (req, res) => {
       attributes: ['id', 'product_name', 'price', 'stock', 'category_id'],
       include: [{ 
         model: Tag,
-        attributes: ['id', 'tag_name'],
-      },
+        through: {
+        // as: 'tagged_products',
+        through: ProductTag,
+        attributes: ['id', 'tag_id'],
+      }},
     {
       model: Category,
       attributes: ['id', 'category_name']
@@ -21,6 +24,7 @@ router.get('/', async (req, res) => {
     });
     res.status(200).json(productData);
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });

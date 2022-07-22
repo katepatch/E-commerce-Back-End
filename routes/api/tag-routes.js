@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
     });
     res.status(200).json(tagData);
   } catch (err) {
-    console.log("tag-routes 18 here");
+    console.log(err);
     res.status(400).json(err);
   }
   });
@@ -26,9 +26,10 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const tagData = await Tag.findByPk(req.params.id, {
+      
       include: [{ 
         model: Product,
-        attributes: ['id', 'tag_name'] 
+        attributes: ['id', 'product_name', 'price', 'stock', 'category_id'] 
       }],
     });
     if (!tagData) {
@@ -37,7 +38,7 @@ router.get('/:id', async (req, res) => {
     }
     res.status(200).json(tagData);
   } catch (err) {
-    console.log("tag routes 39 here");
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -48,7 +49,7 @@ router.post('/', async (req, res) => {
     const tagData = await Tag.create(req.body);
     res.status(200).json(tagData);
   } catch (err) {
-    console.log ("tag routes 47 here");
+    console.log (err);
     res.status(400).json(err);
   }
 });
@@ -57,7 +58,7 @@ router.post('/', async (req, res) => {
 router.put('/:id', (req, res) => {
   Tag.update(
     {
-      tag_name: req.body.tag_name,
+      tag_name: req.body.tag_id,
     },
     {
       where: {
@@ -69,7 +70,7 @@ router.put('/:id', (req, res) => {
     res.json(updateTag);
   })
   .catch((err) => {
-    console.log(err, "tag routes 68 here");
+    console.log(err);
     res.json(err);
   });
 });
