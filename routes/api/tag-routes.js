@@ -72,23 +72,6 @@ router.put('/:id', async (req, res) => {
     console.log(err);
     res.status(400).json(err); 
   }
-  // Tag.update(
-  //   {
-  //     tag_name: req.body.tag_id,
-  //   },
-  //   {
-  //     where: {
-  //       tag_id: req.params.tag_id,
-  //     },
-  //   }
-  // )
-  // .then((updateTag) => {
-  //   res.json(updateTag);
-  // })
-  // .catch((err) => {
-  //   console.log(err);
-  //   res.json(err);
-  // });
 });
 
 // delete on tag by its `id` value
