@@ -67,6 +67,8 @@ Me and my friend Google
 Link to Video 1 <https://watch.screencastify.com/v/NqNg6NyW7YKzQskvuMW4><br>
 Link to Video 2 <https://watch.screencastify.com/v/y3aP3A3MXTzmoiPlUBhi>
 
+Github Repo URL <https://github.com/katepatch/E-commerce-Back-End>
+
 ## Questions
 
 For questions my GitHub username is katepatch
