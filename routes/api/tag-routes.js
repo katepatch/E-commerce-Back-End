@@ -56,23 +56,39 @@ router.post('/', async (req, res) => {
 
 // update a tag's name by its `id` value
 router.put('/:id', (req, res) => {
-  Tag.update(
-    {
-      tag_name: req.body.tag_id,
-    },
-    {
-      where: {
-        tag_id: req.params.tag_id,
+  try {
+    const tagData = await Tag.update(
+      {
+        tag_name: req.body.tag_name,
       },
-    }
-  )
-  .then((updateTag) => {
-    res.json(updateTag);
-  })
-  .catch((err) => {
+      {
+        where: {
+          id: req.params.id
+        }
+      },
+    )
+    res.status(200).json(tagData);
+  } catch (err) {
     console.log(err);
-    res.json(err);
-  });
+    res.status(400).json(err); 
+  }
+  // Tag.update(
+  //   {
+  //     tag_name: req.body.tag_id,
+  //   },
+  //   {
+  //     where: {
+  //       tag_id: req.params.tag_id,
+  //     },
+  //   }
+  // )
+  // .then((updateTag) => {
+  //   res.json(updateTag);
+  // })
+  // .catch((err) => {
+  //   console.log(err);
+  //   res.json(err);
+  // });
 });
 
 // delete on tag by its `id` value
