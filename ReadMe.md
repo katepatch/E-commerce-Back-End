@@ -46,7 +46,25 @@ THEN I am able to successfully create, update, and delete data in my database
 
 ## Installation
 
-Please follow the instructions
+Run 
+
+```
+npm i
+```
+
+Open an integrated terminal in the db file to login in to mysql to source the schema
+
+```
+source schema.sql
+```
+
+Source the seeds
+
+```
+npm run seed
+```
+
+You can now test the API routes in Insomnia
 
 ## Usage
 
@@ -64,7 +82,7 @@ Me and my friend Google
 
 ## Linkss
 
-Link to Video 1 <https://watch.screencastify.com/v/NqNg6NyW7YKzQskvuMW4><br>
+Link to Video 1 <https://watch.screencastify.com/v/NqNg6NyW7YKzQskvuMW4></br>
 Link to Video 2 <https://watch.screencastify.com/v/y3aP3A3MXTzmoiPlUBhi>
 
 Github Repo URL <https://github.com/katepatch/E-commerce-Back-End>
